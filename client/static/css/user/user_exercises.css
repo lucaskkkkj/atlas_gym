@@ -1,0 +1,124 @@
+:root {
+    --primary-color: #121212;
+    --secondary-color: #ffffff;
+    --primary-container: #E60000;
+    --neutral-color: #2C2C2C;
+    --outline-color: #353945;
+    --highlight-color: #E60000;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-color);
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--secondary-color);
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: var(--neutral-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--highlight-color);
+}
+
+.add-btn {
+    width: 150px;
+    height: 50px;
+    font-family: Poppins;
+    background-color: var(--highlight-color);
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-container);
+    padding: 10px;
+    border: 2px solid var(--highlight-color);
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    text-align: center;
+    color: var(--secondary-color);
+    flex: 1 1 30%;
+    margin: 10px;
+}
+
+.exercise-list h2 {
+    margin-top: 0;
+    color: var(--primary-container);
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    background-color: var(--outline-color);
+    color: var(--secondary-color);
+}
+
+table th {
+    background-color: var(--outline-color);
+}
+
+@media (max-width: 600px) {
+    .info-item {
+        flex: 1 1 100%;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .add-btn {
+        top: 10px;
+        right: 10px;
+        padding: 8px 16px;
+    }
+}

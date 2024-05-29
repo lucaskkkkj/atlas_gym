@@ -1,0 +1,18 @@
+<main class="dashboard-container">
+  {{#if workout}}
+  {{#each workout}}
+
+  <div class="data workouts">
+    <a href="/user/{{../user.user_uuid}}/workout/{{id}}">
+      <h2>Treino {{type_workout}}</h2>
+      <div class="data-info">
+        <i class="ph ph-barbell"></i>
+        <span>{{usersCount}}</span>
+      </div>
+    </a>
+  </div>
+  {{/each}}
+  {{else}}
+  <h1>Sem treinos registrados</h1>
+  {{/if}}
+</main>

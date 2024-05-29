@@ -1,0 +1,52 @@
+<main class="dashboard-container">
+
+  <div class="data clients">
+    <h2>Aluno cadastrados</h2>
+    <div class="data-info">
+      <i class="ph ph-users"></i>
+      <span> {{usersCount}} </span>
+    </div>
+  </div>
+
+  <div class="data workouts">
+    <h2>Treinos criados</h2>
+    <div class="data-info">
+      <i class="ph ph-barbell"></i>
+      <span> {{workoutsCount}} </span>
+    </div>
+  </div>
+
+  <div class="data meansurements">
+    <h2>Medidas avaliadas</h2>
+    <div class="data-info">
+      <i class="ph ph-scales"></i>
+      <span>{{meansurementCount}}</span>
+    </div>
+  </div>
+
+  <div class="data last-clients">
+    <h2>Ultimos Alunos</h2>
+    <table class="clients-table">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Nome</th>
+          <th>Idade</th>
+          <th>Objetivo</th>
+          <th>Número</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each users}}
+        <tr>
+          <td><img src="/img/uploads/{{photo}}" alt="Foto do Cliente"></td>
+          <td>{{name}}</td>
+          <td>{{age}}</td>
+          <td>{{focus}}</td>
+          <td>{{phone}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</main>

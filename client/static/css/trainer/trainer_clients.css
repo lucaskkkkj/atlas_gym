@@ -1,0 +1,270 @@
+.main.clients-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.top-container-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+.top-container-custom button {
+  font-weight: 600;
+  transform: scale(1.10);
+  background-color: var(--secundary-container);
+  border: none;
+  border-radius: 20px;
+  padding: 8px;
+  cursor: pointer;
+  transition: background ease 300ms;
+}
+
+.top-container-custom button:hover {
+  background: #fe4545;
+}
+
+.search-box-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 10px;
+  background-color: var(--text-color);
+  width: 40%;
+  border-radius: 20px;
+}
+
+.search-box-custom input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #000;
+}
+
+.search-box-custom input::placeholder {
+  color: #282828;
+}
+
+.search-box-custom .search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secundary-container);
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  color: #fff;
+  cursor: pointer;
+}
+
+.action-custom form button {
+  background-color: var(--secundary-container);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  transition: background ease 300ms;
+  cursor: pointer;
+}
+
+.action-custom form button:hover {
+  background-color: #fe4545;
+}
+
+.action-custom form i {
+  font-size: 1.70rem;
+}
+
+.all-clients-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.clients-table-custom {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.clients-table-custom thead tr th {
+  background-color: var(--secundary-container);
+}
+
+
+.clients-table-custom th,
+.clients-table-custom td {
+  border: 1px solid #000;
+  background-color: var(--grey-400);
+  padding: 8px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background ease 200ms;
+
+}
+
+.clients-table-custom tr:hover td {
+  background-color: var(--grey-300);
+  cursor: pointer;
+}
+
+
+.clients-table-custom img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 4px;
+}
+
+.add-client-modal {
+  background-color: var(--grey-400);
+  margin: 0 auto;
+  padding: 50px;
+  border: 1px solid #888;
+  width: 40%;
+  border-radius: 12px;
+}
+
+.add-client-modal h2 {
+  text-align: center;
+  color: var(--primary-container);
+}
+
+::placeholder {
+  color: #ffffffbc;
+}
+
+/* O botão Fechar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.add-client-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.add-client-modal form .input-group label {
+  color: var(--segund-color);
+}
+
+.add-client-modal form .input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: var(--grey-400);
+  color: var(--text-color);
+}
+
+.add-client-modal form .input-group.select-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-client-modal form .input-group select {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 2.5rem;
+  background: var(--grey-400);
+  color: var(--text-color);
+}
+
+.add-client-modal form .input-group select option {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 2.5rem;
+  background: var(--neutro-color);
+  color: var(--text-color);
+}
+
+.add-client-modal form button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--secundary-container);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-client-modal form button:hover {
+  background-color: #a00000;
+}
+
+@media screen and (max-width: 768px) {
+  .top-container-custom {
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .search-box-custom {
+    width: 100%;
+  }
+
+  .top-container-custom button {
+    margin-top: 10px;
+  }
+
+  .all-clients-container {
+    display: block;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .clients-table-custom {
+    min-width: 600px;
+    width: auto;
+  }
+
+  .clients-table-custom th,
+  .clients-table-custom td {
+    padding: 8px 12px;
+  }
+
+  .clients-table-custom img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .clients-table-custom td:nth-child(2) {
+    overflow: auto;
+  }
+
+  .add-client-modal {
+    width: 80%;
+    padding: 20px;
+  }
+}

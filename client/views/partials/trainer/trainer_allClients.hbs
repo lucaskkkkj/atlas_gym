@@ -1,0 +1,80 @@
+<div class="main clients-container">
+  <div class="top-container-custom">
+    <h3>Alunos Cadastrados</h3>
+
+    <div class="search-box-custom">
+      <input type="text" id="search" class="form-control" placeholder="Filtrar por nome do aluno">
+      <div class="search-icon">
+        <i class="ph ph-magnifying-glass"></i>
+      </div>
+    </div>
+
+    <form class="add-client" action="" method="get">
+      <button type="button">
+        + Adicionar Aluno
+      </button>
+    </form>
+  </div>
+
+  <div class="all-clients-container">
+    <table class="clients-table-custom">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Nome</th>
+          <th>Idade</th>
+          <th>Email</th>
+          <th>Telefone</th>
+          <th>Objetivo</th>
+          <th>Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each clients}}
+        <tr>
+          <td>
+            <a href="/trainer/{{../trainer.trainer_uuid}}/client/{{user_uuid}}">
+              <img src="/img/uploads/{{photo}}" alt="Foto do Cliente">
+            </a>
+          </td>
+          <td>
+            <a href="/trainer/{{../trainer.trainer_uuid}}/client/{{user_uuid}}">
+              {{name}}
+            </a>
+          </td>
+          <td>
+            <a href="/trainer/{{../trainer.trainer_uuid}}/client/{{user_uuid}}">
+              {{age}}
+            </a>
+          </td>
+          <td>
+            <a href="/trainer/{{../trainer.trainer_uuid}}/client/{{user_uuid}}">
+              {{email}}
+            </a>
+          </td>
+          <td>
+            <a href="/trainer/{{../trainer.trainer_uuid}}/client/{{user_uuid}}">
+              {{phone}}
+            </a>
+          </td>
+          <td>
+            <a href="/trainer/{{../trainer.trainer_uuid}}/client/{{user_uuid}}">
+              {{focus}}
+            </a>
+          </td>
+          <td class="action-custom">
+            <form action="/trainer/{{../trainer.trainer_uuid}}/client/{{user_uuid}}" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit">
+                <i class="ph-fill ph-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  {{> trainer/trainer_addClient}}
+</div>

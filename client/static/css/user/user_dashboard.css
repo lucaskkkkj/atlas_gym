@@ -1,0 +1,33 @@
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Duas colunas */
+  gap: 20px;
+  padding: 20px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--grey-400);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.data-info {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 5rem;
+
+  span{
+    font-size: 3rem;
+  }
+}
+
+
+.calendar {
+  grid-column: 1 / -1;
+}
+

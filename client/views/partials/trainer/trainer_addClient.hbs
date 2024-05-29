@@ -1,0 +1,64 @@
+<div id="alunoModal" class="modal">
+  <div class="add-client-modal">
+    <span class="close">&times;</span>
+    <h2>Cadastro de aluno</h2>
+    <form id="alunoForm" action="/trainer/{{trainer.trainer_uuid}}/client" enctype="multipart/form-data" method="post">
+      <div class="input-group">
+        <label for="file">Foto: </label>
+        <input type="file" name="avatar" id="avatar">
+      </div>
+
+      <div class="input-group">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" placeholder="Nome" required>
+      </div>
+
+      <div class="input-group">
+        <label for="age">Idade:</label>
+        <input type="number" id="age" name="age" placeholder="idade" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="E-mail" required>
+      </div>
+
+      <div class="input-group">
+        <label for="telefone">Telefone:</label>
+        <input type="text" maxlength="18" id="tel" name="phone" placeholder="Telefone" required>
+      </div>
+
+      <div class="input-group select-group">
+        <label for="estagio">Estágio:</label>
+        <select name="state" id="">
+          <option selected value="Iniciante">Iniciante</option>
+          <option value="Intermediário">Intermediário</option>
+          <option value="Avançado">Avançado</option>
+        </select>
+      </div>
+
+      <div class="input-group select-group">
+        <label for="sex">Sexo:</label>
+        <select name="sex" id="">
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+        </select>
+      </div>
+
+      <div class="input-group select-group">
+        <label for="objetivo">Objetivo:</label>
+        <select id="focus" name="focus" required>
+          <option selected value="">Selecione um objetivo</option>
+          <option value="Peso">Perder Peso</option>
+          <option value="Hipertrofia">Hipertrofia</option>
+          <option value="Resistência">Resistência</option>
+          <option value="Flexibilidade">Flexibilidade</option>
+          <option value="Reabilitação">Reabilitação</option>
+          <option value="Condicionamento">Condicionamento</option>
+          <option value="Saúde">Saúde Geral</option>
+        </select>
+      </div>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<main class="profile-container">
+  <div class="profile-top">
+    <img src="/img/uploads/{{user.photo}}" alt="Foto de perfil" class="profile-photo">
+    <div class="profile-info">
+      <h2 class="profile-name">{{user.name}}</h2>
+      <h4 class="profile-goal">{{user.focus}}</h4>
+    </div>
+    <button class="profile-change-password-btn" onclick="openModal()">Trocar Senha</button>
+  </div>
+  <div class="profile-statistics">
+    <div class="profile-tips">
+      <h3>Dicas</h3>
+      {{#each tips}}
+      <div class="profile-tip-card">{{tip}}</div>
+      {{/each}}
+    </div>
+    <div class="profile-personal-info">
+      <h3>Informações Pessoais</h3>
+      <div class="profile-info-item">
+        <span>Altura:</span>
+        <span> {{meansurement.height}}m</span>
+      </div>
+      <div class="profile-info-item">
+        <span>Peso:</span>
+        <span>{{meansurement.weight}}kg</span>
+      </div>
+      <div class="profile-info-item">
+        <span>Bíceps Direito:</span>
+        <span>{{meansurement.rightBiceps}}kg</span>
+      </div>
+      <div class="profile-info-item">
+        <span>Bíceps Esquerdo:</span>
+        <span>{{meansurement.leftBiceps}}kg</span>
+      </div>
+      <div class="profile-info-item">
+        <span>Cintura:</span>
+        <span>{{meansurement.waist}}kg</span>
+      </div>
+      <div class="profile-info-item">
+        <span>Coxa Direita:</span>
+        <span>{{meansurement.rightThigh}}kg</span>
+      </div>
+      <div class="profile-info-item">
+        <span>Coxa Esquerda:</span>
+        <span>{{meansurement.leftThigh}}kg</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Trocar Senha</h2>
+    <form action="/user/{{user.user_uuid}}/password" method="post">
+      <div class="form-group">
+        <label for="old-password">Senha Antiga:</label>
+        <input type="text" id="old-password" name="oldpass">
+      </div>
+      <div class="form-group">
+        <label for="new-password">Nova Senha:</label>
+        <input type="text" id="new-password" name="newpass">
+      </div>
+      <button type="submit" class="submit-btn">Enviar</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,201 @@
+:root {
+  --primary-color: #000000;
+  --secundary-container: #E60000;
+  --text-color: #ffffff;
+  --grey-300: #777e90;
+  --grey-400: #383838;
+  --grey-500: #353945;
+  --grey-600: #1d1d1da5;
+  --grey-700: #131313;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #303030;
+  color: #ffffff;
+}
+
+.container {
+  min-width: 100%;
+  background-color: var(--grey-700);
+  padding: 20px;
+  color: var(--text-color);
+}
+
+.topbar {
+  background-color: #202020;
+  padding: 10px;
+  text-align: right;
+}
+
+.add-btn {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar {
+  flex: 1;
+  padding: 20px;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.profile-name {
+  margin-left: 30px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.dicas {
+  flex: 1;
+  padding: 20px;
+}
+
+.dicas h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.dicas-container {
+  position: relative;
+}
+
+#dicas-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #202020;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+}
+
+#dicas {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form {
+  margin-top: 20px;
+}
+
+.form h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  background-color: #202020;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  background-color: #303030;
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color);
+}
+
+.btn-group {
+  text-align: right;
+}
+
+#send-bnt,
+#edit-bnt {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-body {
+  background-color: var(--grey-700);
+  color: var(--text-color);
+}
+
+.modal-body form {
+  color: var(--text-color);
+}
+
+.modal-header {
+  background-color: var(--grey-700);
+  color: var(--text-color);
+}
+
+#modal-footer {
+  background-color: var(--grey-700);
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+#modal-footer button {
+  margin-right: 10px;
+}
+
+.form-control {
+  background-color: var(--grey-600);
+}
+
+.form-group select {
+  background-color: var(--grey-600);
+  color: var(--text-color);
+}
+
+.form-group input:focus {
+  box-shadow: none;
+  color: var(--text-color);
+  border: 1px solid var(--secundary-container);
+  background-color: transparent;
+}
+
+.form-group select:focus {
+  box-shadow: none;
+  border: 1px solid var(--secundary-container);
+  background-color: var(--grey-600);
+  color: var(--text-color);
+}
+
+#modal-footer .btn-primary {
+  background-color: var(--secundary-container);
+  border: none;
+}

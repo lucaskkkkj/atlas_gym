@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/user/user_exercises.css">
+  <title>Ficha de Treino</title>
+</head>
+
+<body>
+  <button class="add-btn" onclick="javascript:history.go(-1)">Voltar para a home</button>
+  <div class="container">
+    <header>
+      <h1>Ficha de Treino: <span class="badge">{{workout.type_workout}}</span></h1>
+    </header>
+    <div class="info">
+      <div class="info-item">
+        <strong>Foco do treino: </strong> <span class="badge">{{user.focus}}</span>
+      </div>
+    </div>
+    <div class="exercise-list">
+      <h2>Lista de Exercícios</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Nº de repetições</th>
+            <th>N° de séries</th>
+            <th>Carga</th>
+            <th>Descanso</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#each exercises}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{sets}}</td>
+            <td>{{reps}}</td>
+            <td>{{kg}}kg</td>
+            <td>{{rest}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

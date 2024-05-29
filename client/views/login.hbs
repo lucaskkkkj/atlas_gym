@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="/css/login.css">
+	<link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
+	<script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+	<title>Login - Atlas GYM</title>
+</head>
+
+<body>
+
+	{{#if error}}
+	<div class="toast-container">
+		<div class="icon">
+			<i class="ph ph-x-circle"></i>
+		</div>
+		<div class="message">
+			{{error}}
+		</div>
+	</div>
+	{{/if}}
+
+	<div class="container" id="container">
+		<div class="form-container colaborator">
+			<form method="POST" action="/login/staff">
+				<h1>Bem vindo Personal</h1>
+				<span>Use seu endereço de E-mail</span>
+				<input type="email" name="email" placeholder="Email">
+				<input type="password" name="password" placeholder="Senha">
+				<button>Entrar</button>
+			</form>
+		</div>
+
+		<div class="form-container user">
+			<form method="POST" action="/login/user">
+				<h1>Bem vindo Aluno!</h1>
+				<span>Use seu endereço de E-mail</span>
+				<input type="email" name="email" placeholder="Email">
+				<input type="password" name="password" placeholder="Senha">
+				<button>Entrar!</button>
+			</form>
+		</div>
+		<div class="toggle-container">
+			<div class="toggle">
+				<div class="toggle-panel toggle-left">
+					<h1>Você é aluno?</h1>
+					<p>Nesse caso, clique no botão abaixo</p>
+					<button class="hidden" id="login">Aluno</button>
+				</div>
+				<div class="toggle-panel toggle-right">
+					<h1>Você é um dos nossos colaboradores?</h1>
+					<p>Nesse caso, clique no botão abaixo</p>
+					<button class="hidden" id="register">Personal</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/js/login.js"></script>
+</body>
+
+</html>

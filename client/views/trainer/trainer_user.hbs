@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
+	<link rel="stylesheet" href="/css/trainer/trainer_user.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<title>Perfil</title>
+</head>
+
+<body>
+
+	{{#if error}}
+	<div class="toast-error">
+		<div class="icon">
+			<i class="ph ph-x-circle"></i>
+		</div>
+		<div class="message">
+			{{error}}
+		</div>
+	</div>
+	{{/if}}
+
+	{{#if sucess}}
+	<div class="toast-sucess">
+		<div class="icon">
+			<i class="ph ph-check-circle"></i>
+		</div>
+		<div class="message">
+			{{sucess}}
+		</div>
+	</div>
+	{{/if}}
+
+
+	<div class="container">
+		<header class="topbar">
+			<img src="#" alt="">
+			<a href="/trainer/{{trainer.trainer_uuid}}"><button class="add-btn">Voltar para a home</button></a>
+			<button class="add-btn" id="addTrainingBtn" type="button" class="btn btn-primary" data-bs-toggle="modal"
+				data-bs-target="#modalFormulario" data-bs-whatever="@mdo">Adicionar Treinos</button>
+		</header>
+		<main class="main">
+			<section class="profile">
+				<div class="sidebar">
+					<img src="/img/uploads/{{user.photo}}" class="profile-image" alt="imagem do Aluno">
+					<h3 class="profile-name">{{user.name}}</h3>
+				</div>
+				<div class="dicas">
+					<h1>Deixe Sua Dica</h1>
+					<form action="/trainer/{{trainer.trainer_uuid}}/client/{{user.user_uuid}}/tip" method="post">
+						<textarea name="tip" name="tip" id="dicas-textarea" placeholder="Deixe sua dica"></textarea>
+						<button id="dicas" type="submit">Salvar</button>
+					</form>
+				</div>
+			</section>
+			<section class="form">
+				<h1>Medidas</h1>
+				<div class="form-container">
+					<form action="/trainer/{{trainer.trainer_uuid}}/client/{{user.user_uuid}}/meansurements" method="post">
+						<div class="input-group">
+							<label for="weight">Peso (kg)</label>
+							<input type="text" name="weight" id="weight" placeholder=" PESO ATUAL: {{meansurements.weight}}KG">
+						</div>
+
+						<div class="input-group">
+							<label for="height">Altura (m)</label>
+							<input type="text" name="height" id="height" placeholder="ALTURA ATUAL: {{meansurements.height}}">
+						</div>
+
+						<div class="input-group">
+							<label for="rightBiceps">Bíceps Direito (cm)</label>
+							<input type="text" name="rightBiceps" id="rightBiceps"
+								placeholder="BÍPECPS DIREIO ATUAL: {{meansurements.rightBiceps}}">
+						</div>
+
+						<div class="input-group">
+							<label for="leftBiceps">Bíceps Esquerdo(cm) </label>
+							<input type="text" name="leftBiceps" id="leftBiceps"
+								placeholder="BÍPECPS ESQUERDO ATUAL: {{meansurements.leftBiceps}}">
+						</div>
+
+						<div class="input-group">
+							<label for="waist">Cintura (cm) </label>
+							<input type="text" name="waist" id="waist" placeholder="CINTURA ATUAL: {{meansurements.waist}}">
+						</div>
+
+						<div class="input-group">
+							<label for="rightThigh">Coxa Direita (cm)</label>
+							<input type="text" name="rightThigh" id="rightThigh"
+								placeholder="COXA DIREITA ATUAL: {{meansurements.rightThigh}}">
+						</div>
+
+						<div class="input-group">
+							<label for="leftThigh">Coxa Esquerda (cm)</label>
+							<input type="text" name="leftThigh" id="leftThigh"
+								placeholder="COXA ESQUERDA ATUAL: {{meansurements.leftThigh}}">
+						</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+				</form>
+	</div>
+	</section>
+	</main>
+	</div>
+
+
+	<div class="modal fade" id="modalFormulario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Formulário de Treino</h5>
+				</div>
+				<div class="modal-body">
+					<form action="/trainer/{{trainer.trainer_uuid}}/client/{{user.user_uuid}}/workout" method="post">
+						<div class="form-group">
+							<label for="selectTreino">Escolha um Treino:</label>
+							<select class="form-control" id="selectTreino" name="typeWorkout">
+								<option value="a">Treino A</option>
+								<option value="b">Treino B</option>
+								<option value="c">Treino C</option>
+								<option value="d">Treino D</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="selectExercicio">Escolha um Exercício:</label>
+							<select class="form-control" id="selectExercicio" name="exercise">
+								<option value="1">Exercício 1</option>
+								<option value="2">Exercício 2</option>
+								<option value="3">Exercício 3</option>
+								<option value="4">Exercício 4</option>
+								<option value="5">Exercício 5</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="nomeExercicio">Nome do Exercício:</label>
+							<input type="text" class="form-control" id="nomeExercicio" name="name">
+						</div>
+						<div class="form-group">
+							<label for="series">Séries:</label>
+							<input type="number" class="form-control" id="series" name="sets">
+						</div>
+						<div class="form-group">
+							<label for="repeticoes">Repetições:</label>
+							<input type="number" class="form-control" id="repeticoes" name="reps">
+						</div>
+						<div class="form-group">
+							<label for="carga">Carga: (kg)</label>
+							<input type="number" class="form-control" id="carga" name="kg">
+						</div>
+						<div class="form-group">
+							<label for="descanso">Descanso: (min)</label>
+							<input type="number" class="form-control" id="descanso" name="rest">
+						</div>
+						<button type="submit" class="btn btn-primary">Salvar</button>
+					</form>
+				</div>
+				<div id="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+					<button type="button" class="btn btn-primary">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<script src="/libs/vanilla-masker.min.js"></script>
+	<script src="/js/trainer/user_profile.js"></script>
+	<script>
+		setTimeout(function () {
+			const toast = document.querySelector('.toast-container')
+			if (toast) {
+				toast.parentNode.removeChild(toast)
+			}
+		}, 4000)
+
+	</script>
+</body>
+
+</html>

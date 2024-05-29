@@ -1,0 +1,357 @@
+@import url('/css/user/user_dashboard.css');
+@import url('/css/user/user-profile.css');
+
+/* Variáveis globais */
+:root {
+    --primary-color: #000000;
+    --secundary-container: #E60000;
+    --text-color: #ffffff;
+    --grey-300: #777e90;
+    --grey-400: #383838;
+    --grey-500: #353945;
+    --grey-600: #1d1d1da5;
+    --grey-700: #131313;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: var(--text-color);
+}
+
+body {
+    background-color: var(--primary-color);
+}
+
+/* Sidebar  */
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    gap: 20px;
+    width: 280px;
+    height: 100%;
+    background: var(--grey-600);
+    transition: 0.3s ease;
+    overflow-x: hidden;
+    z-index: 1;
+}
+
+#sidebar .top-sidebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    margin-top: 2rem;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 2rem;
+
+    img {
+        width: 10rem;
+        transition: all ease-in 500ms;
+    }
+}
+
+#sidebar .top-sidebar {
+    .ph {
+        cursor: pointer;
+    }
+}
+
+
+#sidebar .page-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#sidebar .page-links li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border-radius: 48px 0 0 48px;
+}
+
+#sidebar .page-links li a {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    background: var(--grey-400);
+    align-items: center;
+    border-radius: 12px;
+    font-size: 16px;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow-x: hidden;
+    transition: all ease-in 200ms;
+
+    &:hover {
+        background-color: var(--grey-300);
+    }
+}
+
+#sidebar .page-links li a * {
+    margin-left: 1rem;
+    color: var(--text-color);
+}
+
+/* Sidebar hide */
+
+#sidebar.hide {
+    width: 60px;
+
+    .top-sidebar img {
+        width: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+#sidebar.hide .page-links li {
+    margin: 0 auto;
+}
+
+#sidebar.hide .page-links li a {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    color: var(--grey-400);
+    transition: width 0.3s ease;
+}
+
+#sidebar.hide .page-links li span {
+    display: none;
+}
+
+#sidebar.hide .page-links li a * {
+    margin-left: 0rem;
+}
+
+/* Main Content */
+
+#content {
+    position: relative;
+    left: 280px;
+    width: calc(100% - 280px);
+    transition: 0.3s ease;
+}
+
+#content nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    background-color: var(--grey-600);
+    z-index: 1000;
+}
+
+#content nav a {
+    margin-left: 2rem;
+    color: var(--text-color);
+}
+
+#content.hide {
+    left: 60px;
+    width: calc(100% - 60px);
+}
+
+#content.hide nav {
+    left: 60px;
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+
+.data-users {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--grey-400);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para o conteúdo do modal */
+.modal-content h2 {
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btnYes {
+    background-color: #E60000;
+}
+
+/* Exibição do modal quando ativo */
+.modal-active {
+    display: block;
+}
+
+
+
+
+/* Responsividade */
+@media screen and (max-width: 992px) {
+    #content {
+        left: 60px;
+        width: calc(100% - 60px);
+    }
+
+    #sidebar {
+        width: 60px;
+    }
+
+    #sidebar .top-sidebar img {
+        display: none;
+    }
+
+    #sidebar .page-links li a span {
+        display: none;
+    }
+}
+
+.toast-error {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    background: var(--primary-container);
+    width: 20%;
+    height: 10%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: opacity ease 300ms;
+    z-index: 1000;
+    color: white;
+}
+
+.toast-sucess {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    background: #3afc91;
+    width: 20%;
+    height: 10%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: opacity ease 300ms;
+    z-index: 1000;
+    color: white;
+}
+
+.icon {
+    font-size: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #content {
+        left: 0;
+        width: 100%;
+    }
+
+    #sidebar {
+        width: 100%;
+        height: 10vh;
+        position: fixed;
+        bottom: 0;
+        z-index: 1000;
+        overflow: hidden;
+    }
+
+    #sidebar .top-sidebar * {
+        display: none;
+    }
+
+    #sidebar .page-links {
+        position: relative;
+        bottom: 30px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #sidebar .page-links li {
+        display: flex;
+        text-align: center;
+        margin: 5px;
+        width: auto;
+    }
+
+    #sidebar .page-links li a {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        width: 100px;
+    }
+
+    #sidebar .page-links li a * {
+        font-size: 2rem;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #sidebar .page-links li a {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        width: 50px;
+    }
+}

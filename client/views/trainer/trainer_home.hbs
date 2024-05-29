@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/trainer/trainer_home.css">
+  <title>Dashboard - Atlas GYM</title>
+</head>
+
+<body>
+  <section id="sidebar">
+    <div class="top-sidebar">
+      <img src="/img/logo.png" alt="logo">
+      <i class="ph ph-list"></i>
+    </div>
+
+    <ul class="page-links">
+      <li class="active">
+        <a href="/trainer/{{trainer.trainer_uuid}}">
+          <i class="ph-fill ph-house"></i>
+          <span class="text">Home</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/trainer/{{trainer.trainer_uuid}}/clients">
+          <i class="ph-fill ph-person"></i>
+          <span class="text">Alunos</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="" class="logout">
+          <i class="ph-fill ph-sign-out"></i>
+          <span class="text">Sair</span>
+        </a>
+      </li>
+    </ul>
+
+  </section>
+
+  <div id="content">
+    <nav>
+      <a href="#" class="nav-link">Olá {{staff.name}} </a>
+    </nav>
+
+    {{#if error}}
+    <div class="toast-container">
+      <div class="icon">
+        <i class="ph ph-x-circle"></i>
+      </div>
+      <div class="message">
+        {{error}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{> (lookup . 'partial')}}
+
+    <div class="modal-overlay" id="modal">
+      <form action="/login">
+        <input type="hidden" name="_method" value="DELETE">
+        <div class="modal-content">
+          <h2>Deseja sair?</h2>
+          <p>Tem certeza que deseja sair?</p>
+          <button type="submit" id="btnYes">Sim</button>
+          <button type="button" id="btnNo">Não</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <script src="/libs/vanilla-masker.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/trainer/form-modal.js"></script>
+  <script>
+    setTimeout(function () {
+      const toast = document.querySelector('.toast-container')
+      if (toast) {
+        toast.parentNode.removeChild(toast)
+      }
+    }, 4000)
+
+  </script>
+
+</body>
+
+</html>
